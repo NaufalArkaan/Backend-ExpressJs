@@ -4,12 +4,11 @@ route.get('/', (req, res) => { //calback
     res.send('Hello World!')
   })
   
-route.get('/todos', (req,res) =>{
-    res.send('Page Todos Utama')
-})
+const todoRoutes = require('./todo');
+route.use('/todos', todoRoutes)
 
-route.get('/items', (req,res) =>{
-    res.send("Page Items Utama")
-})
+// route.get('/items', (req,res) =>{
+//     res.send("Page Items Utama")
+// })
   
 module.exports = route
