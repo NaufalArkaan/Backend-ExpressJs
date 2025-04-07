@@ -1,9 +1,21 @@
 class TodoController {
     static getTodos(req,res){
-        res.send('Page Todos Utama')
+        const arrObjects = [
+            {
+                id: 1,
+                name: "laptop"
+            },
+            {
+                id : 2,
+                name: "speaker"
+            }
+        ]
+        res.json(arrObjects)
     }
     static addTodos(req,res){
-        res.send('Page Todos Add')
+        res.json({
+            massage : "Page Todo Add"
+        })
     }
 }
 
