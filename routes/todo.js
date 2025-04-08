@@ -3,6 +3,6 @@ const TodoController = require('../controllers/TodoController')
 
 todoRoute.get('/', TodoController.getTodos)
 
-todoRoute.get('/add', TodoController.addTodos)
+todoRoute.post('/add', TodoController.addTodos)
 
 module.exports = todoRoute

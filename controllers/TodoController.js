@@ -1,21 +1,27 @@
+const {todo} = require('../models')
+
 class TodoController {
     static getTodos(req,res){
-        const arrObjects = [
-            {
-                id: 1,
-                name: "laptop"
-            },
-            {
-                id : 2,
-                name: "speaker"
-            }
-        ]
-        res.json(arrObjects)
+        todo.findAll()
+        .then(todos => {
+            res.json(todos)
+        })
+        .catch(err => {
+            res.json(err)
+        })
     }
     static addTodos(req,res){
-        res.json({
-            massage : "Page Todo Add"
-        })
+       const {task, status} = req.body;
+
+       todo.create({
+        task, status
+       })
+       .then(result => {
+            res.json(result)
+       })
+       .catch(err => {
+            res.json(err)
+       })
     }
 }
 
